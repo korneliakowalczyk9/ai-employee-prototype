@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aria, an AI employee: first handoff prototype</title>
+  <meta name="description" content="A small interactive prototype of handing a first task to an AI employee. Everything is fictional and simulated.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%232b4fd6%27/%3E%3Ctext x=%2716%27 y=%2722.5%27 font-size=%2719%27 font-family=%27Arial,sans-serif%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27white%27%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Aria <span class="muted">· AI employee</span></div>
+    <div class="chips" id="chips" aria-label="Access status"></div>
+    <span class="badge">SIMULATION</span>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Tasks">
+      <button class="btn btn-ghost" type="button" disabled aria-describedby="newtask-note">+ New task</button>
+      <p class="hint" id="newtask-note">Not available in this prototype.</p>
+      <h2 class="side-title">Tasks</h2>
+      <div class="task-item">Triage this week's requests</div>
+    </nav>
+
+    <main class="main" id="main" tabindex="-1"></main>
+    <div class="sr-only" id="announce" role="status" aria-live="polite"></div>
+
+    <aside class="rail" aria-label="Progress and activity">
+      <section id="progress-panel">
+        <h2 class="side-title">Progress</h2>
+        <ol class="steps" id="steps"></ol>
+      </section>
+      <section>
+        <h2 class="side-title">Activity log</h2>
+        <ul class="log" id="log"></ul>
+      </section>
+    </aside>
+  </div>
+
+  <div class="overlay" id="overlay" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
